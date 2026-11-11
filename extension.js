@@ -17,7 +17,6 @@ export default class BongoCatExtension extends Extension {
         this._model = new CatModel(this._settings);
         this._input = new InputListener();
         this._sound = new SoundPlayer(`${this.path}/assets/sounds`);
-        this._sound.init().catch(e => console.error(`[BongoCat] sound init: ${e}`));
         this._accent = new AccentWatcher(() => this._repaintAll());
 
         this._ctx = {
@@ -53,10 +52,21 @@ export default class BongoCatExtension extends Extension {
 
         this._addIndicator();
         this._syncDesktopWidget();
-        this._configureInput();
+
+        // Don't do anything beyond drawing while the shell is still starting
+        // up (login): start reading input only once startup has completed.
+        if (Main.layoutManager._startingUp) {
+            Main.layoutManager.connectObject('startup-complete', () => {
+                Main.layoutManager.disconnectObject(this);
+                this._configureInput();
+            }, this);
+        } else {
+            this._configureInput();
+        }
     }
 
     disable() {
+        Main.layoutManager.disconnectObject(this);
         this._settings.disconnectObject(this);
         this._input.disconnectObject(this);
         this._model.disconnectObject(this);

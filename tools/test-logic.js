@@ -108,7 +108,7 @@ loop.run();
 // Subprocess reader end-to-end, with a fake "libinput" emitting two lines.
 const fakeDir = GLib.dir_make_tmp('bongo-XXXXXX');
 GLib.file_set_contents(`${fakeDir}/libinput`,
-    '#!/bin/sh\nprintf " event3 KEYBOARD_KEY +1s\\tKEY_Q (16) pressed\\n event3 KEYBOARD_KEY +1s\\tKEY_Q (16) released\\n"\nsleep 5\n');
+    '#!/bin/sh\nprintf " event5 POINTER_MOTION +1s 1.0/ 2.0\\n event3 KEYBOARD_KEY +1s\\tKEY_Q (16) pressed\\n event3 KEYBOARD_KEY +1s\\tKEY_Q (16) rel"; sleep 0.2; printf "eased\\n"\nsleep 5\n');
 GLib.spawn_command_line_sync(`chmod +x ${fakeDir}/libinput`);
 GLib.setenv('PATH', `${fakeDir}:${GLib.getenv('PATH')}`, true);
 const live = new InputListener();

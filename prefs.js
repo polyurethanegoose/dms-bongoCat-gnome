@@ -153,7 +153,7 @@ export default class BongoCatPreferences extends ExtensionPreferences {
         sounds.add(switchRow(settings, 'sound-enabled', _('Key Sounds'), _('Soft bongo hit as you type')));
         const soundRows = [
             comboRow(settings, 'sound-profile', _('Sound Profile'), [['bongo', _('Bongo')], ['pop', _('Pop')]]),
-            spinRow(settings, 'sound-volume', _('Volume'), {min: 0, max: 100, step: 5, subtitle: _('Needs GStreamer; without it sounds play at system volume')}),
+            spinRow(settings, 'sound-volume', _('Volume'), {min: 0, max: 100, step: 5, subtitle: _('Needs pw-play or paplay; without them sounds play at system volume')}),
             switchRow(settings, 'sound-on-mouse', _('Sounds on Mouse Clicks')),
         ];
         for (const r of soundRows) {
