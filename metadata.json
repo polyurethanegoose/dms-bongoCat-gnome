@@ -1,0 +1,10 @@
+{
+  "uuid": "bongo-cat@polyurethanegoose",
+  "name": "Bongo Cat",
+  "description": "A reactive Bongo Cat that taps along with your typing. Port of the DankMaterialShell bongoCat plugin by Loc Huynh.\n\nRequires the libinput CLI (or evtest) and membership in the 'input' group.",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "settings-schema": "org.gnome.shell.extensions.bongo-cat",
+  "gettext-domain": "bongo-cat",
+  "url": "https://github.com/hthienloc/dms-plugins/tree/main/bongoCat",
+  "version-name": "2.6.0-gnome1"
+}

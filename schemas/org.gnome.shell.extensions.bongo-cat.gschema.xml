@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mirrors the pluginData keys of the DMS bongoCat plugin (camelCase -> kebab-case). -->
+<schemalist gettext-domain="bongo-cat">
+  <schema id="org.gnome.shell.extensions.bongo-cat" path="/org/gnome/shell/extensions/bongo-cat/">
+
+    <!-- Appearance -->
+    <key name="cat-skin" type="s">
+      <choices><choice value="classic"/><choice value="pixel"/></choices>
+      <default>'classic'</default>
+      <summary>Cat skin</summary>
+    </key>
+    <key name="cat-size-percent" type="i">
+      <range min="50" max="200"/>
+      <default>100</default>
+      <summary>Cat size in the top bar (%)</summary>
+    </key>
+    <key name="cat-y-offset" type="i">
+      <range min="-10" max="10"/>
+      <default>0</default>
+      <summary>Vertical offset of the cat in the top bar (px)</summary>
+    </key>
+    <key name="pixel-skin-color" type="s">
+      <choices>
+        <choice value="white"/><choice value="black"/><choice value="orange"/><choice value="calico"/>
+        <choice value="siamese"/><choice value="pink"/><choice value="cyberpunk"/><choice value="zombie"/>
+      </choices>
+      <default>'white'</default>
+      <summary>Pixel skin colourway</summary>
+    </key>
+    <key name="cat-color-mode" type="s">
+      <choices><choice value="classic"/><choice value="accent"/><choice value="custom"/></choices>
+      <default>'classic'</default>
+      <summary>Vector cat colour mode</summary>
+    </key>
+    <key name="cat-custom-color" type="s">
+      <default>'#ffffff'</default>
+      <summary>Custom vector cat colour (#rrggbb)</summary>
+    </key>
+    <key name="classic-idle" type="b">
+      <default>false</default>
+      <summary>Use the classic colour while sleeping</summary>
+    </key>
+    <key name="enable-blinking" type="b">
+      <default>true</default>
+      <summary>Blink while awake</summary>
+    </key>
+    <key name="panel-position" type="s">
+      <choices><choice value="left"/><choice value="center"/><choice value="right"/></choices>
+      <default>'right'</default>
+      <summary>Top bar box</summary>
+    </key>
+    <key name="panel-index" type="i">
+      <range min="-1" max="50"/>
+      <default>0</default>
+      <summary>Position inside the top bar box</summary>
+    </key>
+
+    <!-- Input & behaviour -->
+    <key name="selected-device-path" type="s">
+      <default>'all'</default>
+      <summary>Keyboard to monitor ('all' = libinput, otherwise an evdev path for evtest)</summary>
+    </key>
+    <key name="waiting-timeout" type="i">
+      <range min="1" max="10"/>
+      <default>5</default>
+      <summary>Seconds of inactivity before the cat falls asleep</summary>
+    </key>
+    <key name="paw-hold-time" type="i">
+      <range min="0" max="100"/>
+      <default>0</default>
+      <summary>Extra time the paw stays down after a key release (ms)</summary>
+    </key>
+    <key name="double-slam" type="b">
+      <default>true</default>
+      <summary>Space / Enter slam both paws</summary>
+    </key>
+    <key name="mouse-enabled" type="b">
+      <default>false</default>
+      <summary>React to mouse clicks and scrolling</summary>
+    </key>
+    <key name="show-metrics" type="b">
+      <default>false</default>
+      <summary>Track WPM and correction rate</summary>
+    </key>
+    <key name="metrics-in-bar" type="b">
+      <default>false</default>
+      <summary>Show metrics next to the cat in the top bar</summary>
+    </key>
+    <key name="metrics-window-sec" type="i">
+      <range min="5" max="120"/>
+      <default>60</default>
+      <summary>Sliding window for metrics (s)</summary>
+    </key>
+
+    <!-- Sounds -->
+    <key name="sound-enabled" type="b">
+      <default>false</default>
+      <summary>Play a sound on key presses</summary>
+    </key>
+    <key name="sound-profile" type="s">
+      <choices><choice value="bongo"/><choice value="pop"/></choices>
+      <default>'bongo'</default>
+      <summary>Sound profile</summary>
+    </key>
+    <key name="sound-volume" type="i">
+      <range min="0" max="100"/>
+      <default>60</default>
+      <summary>Sound volume (%)</summary>
+    </key>
+    <key name="sound-on-mouse" type="b">
+      <default>false</default>
+      <summary>Also play sounds on mouse clicks</summary>
+    </key>
+
+    <!-- Desktop widget -->
+    <key name="desktop-widget-enabled" type="b">
+      <default>false</default>
+      <summary>Show the cat on the desktop</summary>
+    </key>
+    <key name="desktop-widget-size" type="i">
+      <range min="80" max="600"/>
+      <default>160</default>
+      <summary>Desktop widget width (px)</summary>
+    </key>
+    <key name="desktop-widget-x" type="i">
+      <default>-1</default>
+      <summary>Desktop widget X position (-1 = default)</summary>
+    </key>
+    <key name="desktop-widget-y" type="i">
+      <default>-1</default>
+      <summary>Desktop widget Y position (-1 = default)</summary>
+    </key>
+    <key name="desktop-background-opacity" type="i">
+      <range min="0" max="100"/>
+      <default>0</default>
+      <summary>Desktop widget background opacity (%)</summary>
+    </key>
+    <key name="desktop-show-metrics" type="b">
+      <default>false</default>
+      <summary>Show metrics on the desktop widget</summary>
+    </key>
+
+    <!-- Misc -->
+    <key name="show-hints" type="b">
+      <default>true</default>
+      <summary>Show usage hints in the menu</summary>
+    </key>
+  </schema>
+</schemalist>
