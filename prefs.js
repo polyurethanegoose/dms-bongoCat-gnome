@@ -189,7 +189,7 @@ export default class BongoCatPreferences extends ExtensionPreferences {
         const status = checkInputRequirements(settings.get_string('selected-device-path'), settings.get_boolean('mouse-enabled'));
         const setup = new Adw.PreferencesGroup({
             title: _('Setup'),
-            description: _("Add your user to the 'input' group to detect keyboard activity. After running the command, logout and login again for changes to take effect."),
+            description: _("Add your user to the 'input' group to detect keyboard activity. After running the command, reboot for the change to take effect (a quick logout/login may not be enough)."),
         });
         aboutPage.add(setup);
         const ok = v => v ? '✔' : '✘';
@@ -197,9 +197,14 @@ export default class BongoCatPreferences extends ExtensionPreferences {
             title: _('libinput CLI'),
             subtitle: `${ok(!status.inputToolMissing || status.requiredTool !== 'libinput')} ${_('Fedora: libinput-utils · Arch/Debian/Ubuntu: libinput-tools')}`,
         }));
+        let accessText = _('OK');
+        if (status.notInInputGroup)
+            accessText = _("Not in the 'input' group");
+        else if (status.reloginNeeded)
+            accessText = _("In the 'input' group, but this session predates it — reboot to apply");
         setup.add(new Adw.ActionRow({
-            title: _('input group'),
-            subtitle: `${ok(!status.notInInputGroup)} ${status.notInInputGroup ? _('Not a member yet (or not logged in again)') : _('OK')}`,
+            title: _('Keyboard access'),
+            subtitle: `${ok(!status.notInInputGroup && !status.reloginNeeded)} ${accessText}`,
         }));
         const cmdRow = new Adw.ActionRow({title: SETUP_COMMAND, subtitle: _('Add to input group')});
         cmdRow.add_css_class('monospace');
