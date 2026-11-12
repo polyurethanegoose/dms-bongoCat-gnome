@@ -140,10 +140,5 @@
       <summary>Show metrics on the desktop widget</summary>
     </key>
 
-    <!-- Misc -->
-    <key name="show-hints" type="b">
-      <default>true</default>
-      <summary>Show usage hints in the menu</summary>
-    </key>
   </schema>
 </schemalist>

@@ -18,7 +18,8 @@
 
 .bongo-cat-hero-item { padding: 6px 12px; }
 .bongo-cat-hero {
-  height: 120px;
+  height: 132px;
+  spacing: 4px;
   border-radius: 16px;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.06);
@@ -71,7 +72,6 @@
 .bongo-cat-reset-button { border-radius: 99px; padding: 4px; }
 .bongo-cat-reset-button:hover { background-color: rgba(255, 255, 255, 0.1); }
 
-.bongo-cat-hint { font-size: 0.85em; opacity: 0.7; max-width: 20em; }
 
 .bongo-cat-desktop {
   color: #ffffff;

@@ -217,10 +217,6 @@ export default class BongoCatPreferences extends ExtensionPreferences {
         cmdRow.add_suffix(copy);
         setup.add(cmdRow);
 
-        const behavior = new Adw.PreferencesGroup({title: _('Behavior')});
-        aboutPage.add(behavior);
-        behavior.add(switchRow(settings, 'show-hints', _('Show Hints'), _('Usage tips in the menu')));
-
         const usage = new Adw.PreferencesGroup({title: _('Usage Guide')});
         aboutPage.add(usage);
         usage.add(new Adw.ActionRow({title: _('Left-click'), subtitle: _('Open the menu')}));
