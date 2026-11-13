@@ -3,7 +3,7 @@
 A Bongo Cat that taps along with your typing, shown in the GNOME top bar and
 optionally on the desktop. It is a port of the
 [DankMaterialShell `bongoCat` plugin](https://github.com/hthienloc/dms-plugins/tree/main/bongoCat)
-by Loc Huynh (QML/Quickshell) to a GNOME Shell extension (GJS, GNOME 45–50).
+by Loc Huynh (QML/Quickshell) to a GNOME Shell extension (GJS, GNOME 50–51).
 
 ## Requirements
 
@@ -58,7 +58,7 @@ Everything else is in the preferences window (`gnome-extensions prefs bongo-cat@
 make check     # renders preview.png with every pose/skin + runs logic tests (plain gjs, no Shell needed)
 make glyphs    # regenerate lib/catGlyphs.js from the font (pip install fonttools)
 make pot       # extract translatable strings
-# Test in a nested shell (GNOME 49+: --devkit, older: --nested):
+# Test in a nested shell:
 dbus-run-session gnome-shell --devkit --wayland
 journalctl -f -o cat /usr/bin/gnome-shell | grep -i bongo
 ```
@@ -71,7 +71,7 @@ journalctl -f -o cat /usr/bin/gnome-shell | grep -i bongo
 - **Mouse reactions in specific-keyboard mode now work.** In the original, the
   second `libinput` process emitted a signal that the widget never handled.
 - **The "Theme Primary" colour is now "Accent Color".** It follows GNOME's accent
-  colour on GNOME 47+ and falls back to Adwaita blue on older versions.
+  colour, falling back to Adwaita blue if it can't be read.
 - **The custom colour is picked in Preferences.** GNOME Shell has no colour-picker
   modal that can be used from a menu.
 - **Sliders and dropdowns** are GNOME menu sliders and submenus. Picking a
